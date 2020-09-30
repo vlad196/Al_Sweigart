@@ -12,4 +12,3 @@ def collatz(number):
 
 print("insert value")
 collatz(int(input()))
-#aaa

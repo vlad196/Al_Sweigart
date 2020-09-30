@@ -10,4 +10,3 @@ while spam !="exit":
     else:
         print("Hi")
         continue
-#продолжение урока
