@@ -9,12 +9,11 @@ def addToInventory(inventory, addedItems):
         count.setdefault(items, 0)
         count [items] = count[items] + 1
     print(count)
-    for k, v in inventory.items():
-        if inventory [k] in count.keys():
-            inventory[v] +=1
-        else:
-            continue
-    print(inventory)
+    for k, v in count.items():
+        if k not in inventory:
+            inventory.setdefault(k, 1)
+        elif k in inventory:
+            inventory[k] = inventory[k] + v
 
 inv = {"gold coin" : 42, "rope" : 1}
 dragonLoot = ["gold coin", "dagger", "gold coin", "gold coin", "ruby"]
