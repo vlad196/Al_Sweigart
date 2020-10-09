@@ -9,7 +9,11 @@ def addToInventory(inventory, addedItems):
         count.setdefault(items, 0)
         count [items] = count[items] + 1
     print(count)
-    inventory = {**inventory, **count}
+    for k, v in inventory.items():
+        if inventory [k] in count.keys():
+            inventory[v] +=1
+        else:
+            continue
     print(inventory)
 
 inv = {"gold coin" : 42, "rope" : 1}
