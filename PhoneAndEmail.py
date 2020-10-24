@@ -6,12 +6,13 @@ import pyperclip
 import re
 
 phoneregex = re.compile(r'''(
-    (\d{3} | \(d{3}\))?  # территориальный номер
+    ([8]\s? | [+7]\s? | [7]\s?)
+    (\d{3} | \(\d{3}\))?  # территориальный номер
     (\s |-|\.)?  # разделитель
     (\d{3})  # первые 3 цифры
     (\s |-|\.)  # разделитель
-    (\d{4})  # последние 4 цифры
-    (\s*(ext |x| ext.) \s* (\d{2,5}))  # добавочный номер
+    (\d{4} | (\d{2}-\d{2}))  # последние 4 цифры или 2 через тирэ
+    (\s*(ext |x| ext.) \s* (\d{2,5}))?  # добавочный номер
     )''', re.VERBOSE)
 
 # Создание регулярных выражений для адрессов электронной почты.
@@ -27,7 +28,7 @@ emailregex = re.compile(r'''(
 text = str(pyperclip.paste())
 matches = []
 for groups in phoneregex.findall(text):
-    phonenum = '-'.join([groups[1], groups[2], groups[5]])
+    phonenum = '-'.join([groups[1],groups[2],groups[4],groups[6]])
     if groups[8] != '':
         phonenum += 'x' + groups[8]
     matches.append(phonenum)
