@@ -26,3 +26,6 @@ print(os.path.dirname(path))
 print(os.path.split(path))
 
 print(path.split(os.path.sep))
+
+print(os.path.getsize(path))
+print(os.listdir('C:\\Windows\\System32\\'))
