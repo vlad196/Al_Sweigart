@@ -5,16 +5,17 @@ import pyperclip
 import re
 
 #  Создаём правила регулярных выражений для ключа и значения
-findstatescities = re.compile(r'(?P<state>[^\W\d_]+(?:\s+[^\W\d_]+)*)\s*\((?P<city>[^()]*)\)')
+findstatescities = re.compile(r'''(
+    ([^\W\d_]+(?:\s+[^\W\d_]+)*)
+    \s*\(([^()]*)\)
+    )''', re.VERBOSE)
 #  Сначала строка копирует строку
 text = str(pyperclip.paste())
-
-statescities = [x.groupdict() for x in re.finditer(findstatescities, text)]
-print(statescities)
-
-
+matches1 ={}
+for groups in findstatescities.findall(text):
+    matches1.update({groups[1]:groups[2]})
+print(matches1)
 #  Создаём новый словарь
-matches = {}
 #  Регулярными выражениями в ключ добавляем города,
 #  а в значение штаты
 
