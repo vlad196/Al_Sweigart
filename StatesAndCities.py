@@ -3,7 +3,7 @@
 #  StatesAndCities - Преобразовывает строку штатов и городов в один словарь
 import pyperclip
 import re
-
+import os
 #  Создаём правила регулярных выражений для ключа и значения
 findstatescities = re.compile(r'''(
     ([^\W\d_]+(?:\s+[^\W\d_]+)*)
@@ -15,3 +15,6 @@ matches1 ={}
 for groups in findstatescities.findall(text):
     matches1.update({groups[1]:groups[2]})
 print(matches1)
+StatesAndCities = open('RandomQuizGeneration.py','a')
+StatesAndCities.write('capitals = '+ str(matches1))
+StatesAndCities.close()
