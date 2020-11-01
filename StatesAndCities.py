@@ -15,11 +15,3 @@ matches1 ={}
 for groups in findstatescities.findall(text):
     matches1.update({groups[1]:groups[2]})
 print(matches1)
-#  Создаём новый словарь
-#  Регулярными выражениями в ключ добавляем города,
-#  а в значение штаты
-
-#  dict.update...добавлять в виде кортежа
-#  Преобразуем в строку типа словаря
-
-#  копируем
