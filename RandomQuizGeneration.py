@@ -1,25 +1,39 @@
 #! Python3
-
-# RandomQuizGenerator - бла бла
+# -*- coding: utf-8 -*-
+# RandomQuizGenerator - Р±Р»Р° Р±Р»Р°
 
 import random
 
-capitals = {'Aйдaхo': 'Цeнтp Бoйce', 'Aйoвa': 'Ocнoвнoй цeнтp Дe-Moйн', 'Aлaбama': 'Moнтгomepи', 'Aляcka': 'Цeнтp Джyнo', 'Apизoнa': 'Cтoличный paйoн Финиkc', 'Apkaнзac': 'Литл-pok', 'Вaйomинг': 'Шaйeн', 'Вaшингтoн': 'Oлиmпия', 'Вepmoнт': 'Moнтпилиep', 'Виpгиния': 'Pичmoнд', 'Виpгиния Зaпaднaя': 'Чapлcтoн', 'Виckoнcин': 'Cтoличный paйoн Mэдиcoн', 'Гaвaйи': 'Цeнтp Гoнoлyлy', 'Дakoтa Ceвepнaя': 'Цeнтp Биcmapk', 'Дakoтa Южнaя': 'Цeнтp Пиpp', 'Дeлaвэp': 'Дoвep', 'Джopджия': 'Цeнтp Aтлaнтa', 'Иллинoйc': 'Cпpингфилд', 'Индиaнa': 'Цeнтp Индиaнaпoлиc', 'Kaлифopния': 'Cakpameнтo', 'Kaнзac': 'Toпиka', 'Kapoлинa Ceвepнaя': 'Poли', 'Kapoлинa южнaя': 'Цeнтp Koлymбия', 'Keнтykkи': 'Цeнтp Фpaнkфopт', 'Koлopaдo': 'Цeнтp Дeнвep', 'Koннekтиkyт': 'Ocнoвнoй paйoн Хapтфopд', 'Лyизиaнa': 'Цeнтp Бaтoн-Pyж', 'Maccaчyceтc': 'Цeнтp Бocтoн', 'Mиннecoтa': 'Ceн-Пoл', 'Mиccиcипи': 'Джэkcoн', 'Mиccypи': 'Дджeффepcoн-Cити', 'Mичигaн': 'Цeнтp Лaнcинг', 'Moнтaнa': 'Хeлeнa', 'Mэн': 'Цeнтp Oгacтa', 'Mэpилeнд': 'Cтoличный paйoн Aннaпoлиc', 'Нeбpacka': 'Цeнтp Линkoльн', 'Нeвaдa': 'Kapcoн-Cити', 'Гэmпшиp': 'Koнkopд', 'Джepcи': 'Tpeнтoн', 'Йopk': 'Цeнтp Oлбaни', 'Mekcиko': 'Caнтa-Фe', 'Oгaйo': 'Koлymбyc', 'Okлaхoma': 'Okлaхoma-cити', 'Opeгoн': 'Cтoличный paйoн Ceйлem', 'Пeнcильвaния': 'Гappиcбepг', 'Aйлeнд': 'Пpoвидeнc', 'Teннecи': 'Цeнтp Нэшвилл', 'Teхac': 'Цeнтp ocтин', 'Флopидa': 'Цeнтp Taллaхaccи', 'Ютa': 'Cтoлицa paйoн Coлт-Лeйk-Cити'}
-#  TODO: Создать файлы билетов и ключей ответов
+capitals = {u'AР№РґaС…o': 'Р¦eРЅС‚p Р‘oР№ce', 'AР№oРІa': 'OcРЅoРІРЅoР№ С†eРЅС‚p Р”e-MoР№РЅ', 'AР»aР±ama': 'MoРЅС‚РіomepРё', 'AР»СЏcka': 'Р¦eРЅС‚p Р”Р¶yРЅo', 'ApРёР·oРЅa': 'CС‚oР»РёС‡РЅС‹Р№ paР№oРЅ Р¤РёРЅРёkc', 'ApkaРЅР·ac': 'Р›РёС‚Р»-pok', 'Р’aР№omРёРЅРі': 'РЁaР№eРЅ', 'Р’aС€РёРЅРіС‚oРЅ': 'OР»РёmРїРёСЏ', 'Р’epmoРЅС‚': 'MoРЅС‚РїРёР»Рёep', 'Р’РёpРіРёРЅРёСЏ': 'PРёС‡moРЅРґ', 'Р’РёpРіРёРЅРёСЏ Р—aРїaРґРЅaСЏ': 'Р§apР»cС‚oРЅ', 'Р’РёckoРЅcРёРЅ': 'CС‚oР»РёС‡РЅС‹Р№ paР№oРЅ MСЌРґРёcoРЅ', 'Р“aРІaР№Рё': 'Р¦eРЅС‚p Р“oРЅoР»yР»y', 'Р”akoС‚a CeРІepРЅaСЏ': 'Р¦eРЅС‚p Р‘Рёcmapk', 'Р”akoС‚a Р®Р¶РЅaСЏ': 'Р¦eРЅС‚p РџРёpp', 'Р”eР»aРІСЌp': 'Р”oРІep', 'Р”Р¶opРґР¶РёСЏ': 'Р¦eРЅС‚p AС‚Р»aРЅС‚a', 'РР»Р»РёРЅoР№c': 'CРїpРёРЅРіС„РёР»Рґ', 'РРЅРґРёaРЅa': 'Р¦eРЅС‚p РРЅРґРёaРЅaРїoР»Рёc', 'KaР»РёС„opРЅРёСЏ': 'CakpameРЅС‚o', 'KaРЅР·ac': 'ToРїРёka', 'KapoР»РёРЅa CeРІepРЅaСЏ': 'PoР»Рё', 'KapoР»РёРЅa СЋР¶РЅaСЏ': 'Р¦eРЅС‚p KoР»ymР±РёСЏ', 'KeРЅС‚ykkРё': 'Р¦eРЅС‚p Р¤paРЅkС„opС‚', 'KoР»opaРґo': 'Р¦eРЅС‚p Р”eРЅРІep', 'KoРЅРЅekС‚РёkyС‚': 'OcРЅoРІРЅoР№ paР№oРЅ РҐapС‚С„opРґ', 'Р›yРёР·РёaРЅa': 'Р¦eРЅС‚p Р‘aС‚oРЅ-PyР¶', 'MaccaС‡yceС‚c': 'Р¦eРЅС‚p Р‘ocС‚oРЅ', 'MРёРЅРЅecoС‚a': 'CeРЅ-РџoР»', 'MРёccРёcРёРїРё': 'Р”Р¶СЌkcoРЅ', 'MРёccypРё': 'Р”РґР¶eС„С„epcoРЅ-CРёС‚Рё', 'MРёС‡РёРіaРЅ': 'Р¦eРЅС‚p Р›aРЅcРёРЅРі', 'MoРЅС‚aРЅa': 'РҐeР»eРЅa', 'MСЌРЅ': 'Р¦eРЅС‚p OРіacС‚a', 'MСЌpРёР»eРЅРґ': 'CС‚oР»РёС‡РЅС‹Р№ paР№oРЅ AРЅРЅaРїoР»Рёc', 'РќeР±packa': 'Р¦eРЅС‚p Р›РёРЅkoР»СЊРЅ', 'РќeРІaРґa': 'KapcoРЅ-CРёС‚Рё', 'Р“СЌmРїС€Рёp': 'KoРЅkopРґ', 'Р”Р¶epcРё': 'TpeРЅС‚oРЅ', 'Р™opk': 'Р¦eРЅС‚p OР»Р±aРЅРё', 'MekcРёko': 'CaРЅС‚a-Р¤e', 'OРіaР№o': 'KoР»ymР±yc', 'OkР»aС…oma': 'OkР»aС…oma-cРёС‚Рё', 'OpeРіoРЅ': 'CС‚oР»РёС‡РЅС‹Р№ paР№oРЅ CeР№Р»em', 'РџeРЅcРёР»СЊРІaРЅРёСЏ': 'Р“appРёcР±epРі', 'AР№Р»eРЅРґ': 'РџpoРІРёРґeРЅc', 'TeРЅРЅecРё': 'Р¦eРЅС‚p РќСЌС€РІРёР»Р»', 'TeС…ac': 'Р¦eРЅС‚p ocС‚РёРЅ', 'Р¤Р»opРёРґa': 'Р¦eРЅС‚p TaР»Р»aС…accРё', 'Р®С‚a': 'CС‚oР»РёС†a paР№oРЅ CoР»С‚-Р›eР№k-CРёС‚Рё'}
+#  РЎРѕР·РґР°С‚СЊ С„Р°Р№Р»С‹ Р±РёР»РµС‚РѕРІ Рё РєР»СЋС‡РµР№ РѕС‚РІРµС‚РѕРІ
 for quiznum in range(35):
-    #  Создание файлов, билетов и ключей ответов
-    quizfile = open('capitalsquiz%s.txt' % (quiznum + 1), 'w')
-    answerkeyfile = open('capitalquiz_answers%s.txt' % (quiznum + 1), 'w')
-    #  Запись заголовка билета
-    quizfile.write('Имя:\n\nДата:\n\nЛукрс:\n\n')
-    quizfile.write((' ' * 15) + 'Проверка знаний столиц штатов (Билет %s)' % (quiznum + 1))
+    #  РЎРѕР·РґР°РЅРёРµ С„Р°Р№Р»РѕРІ, Р±РёР»РµС‚РѕРІ Рё РєР»СЋС‡РµР№ РѕС‚РІРµС‚РѕРІ
+    quizfile = open('quiz/capitalsquiz%s.txt' % (quiznum + 1), 'w')
+    answerkeyfile = open('quiz/capitalquiz_answers%s.txt' % (quiznum + 1), 'w')
+    #  Р—Р°РїРёСЃСЊ Р·Р°РіРѕР»РѕРІРєР° Р±РёР»РµС‚Р°
+    quizfile.write('РРјСЏ:\n\nР”Р°С‚Р°:\n\nРљСѓСЂСЃ:\n\n')
+    quizfile.write((' ' * 15) + u'РџСЂРѕРІРµСЂРєР° Р·РЅР°РЅРёР№ СЃС‚РѕР»РёС† С€С‚Р°С‚РѕРІ (Р‘РёР»РµС‚ %s)' % (quiznum + 1))
     quizfile.write('\n\n')
-    #  Переименование порядка следования столиц штатов
+    #  РџРµСЂРµРёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЂСЏРґРєР° СЃР»РµРґРѕРІР°РЅРёСЏ СЃС‚РѕР»РёС† С€С‚Р°С‚РѕРІ
     states = list(capitals.keys())
     random.shuffle(states)
-#  TODO: Записать заголовок билета
-
-#  TODO: Перемешать порядок следования билетов
-
-#  TODO: Организовать цикл по всем 50 штатам,
-#  создавая вопрос для каждого из них
+#  РћСЂРіР°РЅРёР·РѕРІР°С‚СЊ С†РёРєР» РїРѕ РІСЃРµРј 50 С€С‚Р°С‚Р°Рј,
+#  СЃРѕР·РґР°РІР°СЏ РІРѕРїСЂРѕСЃ РґР»СЏ РєР°Р¶РґРѕРіРѕ РёР· РЅРёС…
+    for questionNum in range(50):
+        #  РџРѕР»СѓС‡РµРЅРёРµ РїСЂР°РІРёР»СЊРЅС‹С… Рё РЅРµРїСЂР°РІРёР»СЊРЅС‹С… РѕС‚РІРµС‚РѕРІ
+        correctAnswer = capitals[states[questionNum]]
+        wrongAnswers = list(capitals.values())
+        del wrongAnswers[wrongAnswers.index(correctAnswer)]
+        wrongAnswers = random.sample(wrongAnswers, 3)
+        answerOptions = wrongAnswers + [correctAnswer]
+        random.shuffle(answerOptions)
+        #  Р—Р°РїРёСЃР°С‚СЊ РІР°СЂРёР°РЅС‚С‹ РІРѕРїСЂРѕСЃРѕРІ Рё РѕС‚РІРµС‚РѕРІ
+        #  РІ С„Р°Р№Р» Р±РёР»РµС‚Р°
+        quizfile.write('%s. Р’С‹Р±РµСЂРёС‚Рµ СЃС‚РѕР»РёС†Сѓ С€С‚Р°С‚Р° %s. \n' % (questionNum + 1, states[questionNum]))
+        for i in range(4):
+            quizfile.write(' %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+        quizfile.write('\n')
+        #  Р—Р°РїРёСЃР°С‚СЊ РєР»СЋС‡ РѕС‚РІРµС‚Р° РІ С„Р°Р№Р»
+        answerkeyfile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
+quizfile.close()
+answerkeyfile.close()

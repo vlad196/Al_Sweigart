@@ -1,9 +1,8 @@
 #! Python3
-
+# -*- coding: utf-8 -*-
 #  StatesAndCities - Преобразовывает строку штатов и городов в один словарь
 import pyperclip
 import re
-import os
 #  Создаём правила регулярных выражений для ключа и значения
 findstatescities = re.compile(r'''(
     ([^\W\d_]+(?:\s+[^\W\d_]+)*)
