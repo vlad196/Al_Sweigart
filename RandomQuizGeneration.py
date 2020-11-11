@@ -37,4 +37,4 @@ for quiznum in range(35):
         answerkeyfile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
 quizfile.close()
 answerkeyfile.close()
-capitals = {}capitals = {}
+capitals = {}
