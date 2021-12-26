@@ -27,7 +27,7 @@ print(string+' Записано в mytext.txt')
 #  открываем файл в режиме записи
 mytext = open('mytext.txt', 'w')
 
-#  записываем всё что получилось в переменной string
+#  записываем всё что получилось в переменной string.
 mytext.write(string)
 #  закрываем файл
 mytext.close()
