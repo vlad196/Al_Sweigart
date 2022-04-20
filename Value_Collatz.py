@@ -1,3 +1,6 @@
+#! Python3
+# -*- coding: utf-8 -*-
+
 def collatz(number):
     while number != 1:
         print(number)
@@ -11,4 +14,7 @@ def collatz(number):
 
 
 print("insert value")
-collatz(int(input()))
+try:
+    collatz(int(input()))
+except ValueError:
+        print("'это не число, введите число")
