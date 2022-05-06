@@ -24,6 +24,6 @@ def addtoinventory(inventory, addeditems):  # функция добавлени�
 
 
 inv = {"gold coin": 42, "rope": 1}  # Изначально у нас есть инвентарь из словаря
-dragonLoot = ["gold coin", "dagger", "gold coin", "gold coin", "ruby"]  # у нас есть лут из списка
+dragonLoot = ["gold coin", "dagger", "gold coin", "gold coin", "ruby"]  # Dу нас есть лут из списка
 inv = addtoinventory(inv, dragonLoot)  # Переадресуем переменнную на обновлённый словарь, после функции
 displayinventory(inv)  # Выводим инвентарь на дисплей
