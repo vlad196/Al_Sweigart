@@ -13,6 +13,7 @@ for word in message.split():
         prefixNonLetters += word[1:]
     if len(word) == 0:
         pigLatin.append(prefixNonLetters)
+        continue
     # отделяем небуквенные символы в начале слова
     sufixNonLetters = ''
     while not word[-1].isalpha():
@@ -40,4 +41,4 @@ for word in message.split():
     # возвращаем небуквенные символы в начало и конец слова
     pigLatin.append(prefixNonLetters + word + sufixNonLetters)
 # соединяем слова обратно в текст
-print(''.join(pigLatin))
+print(' '.join(pigLatin))
