@@ -6,14 +6,18 @@
 tabledata = [['apples', 'oranges', 'cherries', 'banana'],
              ['Alice', 'Bob', 'Carol', 'David'],
              ['dogs', 'cats', 'moose', 'goose']]
-# Сделать подсчёт самого длинного списка в списке для того, чтобы узнать какой длинны должна быть строка
 
-# Сделать подсчёт столбцов и строк
+def printTable(data):
+    colLen = len(data)
+    rowLen = max(len(data[0]), len(data[colLen-1]))
+    colWidths = []
+    for i in range (colLen):
+        colWidth1 = 0
+        for word in data[i]:
+            colWidth1 = colWidth1 + len((word))
+        colWidths.append(colWidth1)
+    maxColWidth = max(colWidths)
+    print(maxColWidth)
 
 # Сделать новый список, где строка это новая часть столбца и вывести через join \t
-def printTable(data):
-    colWidth = [0]* len(data)
-    print(colWidth)
-
-
 printTable(tabledata)
