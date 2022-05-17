@@ -11,13 +11,13 @@ def printTable(data):
     colLen = len(data)
     rowLen = max(len(data[0]), len(data[colLen-1]))
     colWidths = []
-    for i in range (colLen):
-        colWidth1 = 0
-        for word in data[i]:
-            colWidth1 = colWidth1 + len((word))
+    for i in range(colLen):
+        colWidth1 = len(max(data[i], key=len))
         colWidths.append(colWidth1)
-    maxColWidth = max(colWidths)
-    print(maxColWidth)
-
 # Сделать новый список, где строка это новая часть столбца и вывести через join \t
+    for row in range(rowLen):
+        result = []
+        for col in range(colLen):
+            result.append(data[col][row].rjust(colWidths[col]))
+        print('\t'.join(result))
 printTable(tabledata)
